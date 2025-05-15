@@ -19,9 +19,9 @@ result: .asciz " =\t0x(%08X)(%08X)(%08X)\n\n"
 main:
     push {lr}
 
-
 	ldr r0,=string1
 	bl printf
+
     mov r4, #NUM
     mov r0, #1
     ldr r5, =data1
@@ -55,19 +55,20 @@ addBits:
     ldr r6, =data2
     ldr r7, =sum
 
-    add_loop:
-        cmp r4, #NUM
-        beq done
+add_loop:
+    cmp r4, #NUM
+    beq done
 
-        ldr r8, [r5, r4, LSL #2]
-        ldr r9, [r6, r4, LSL #2]
+    ldr r8, [r5, r4, LSL #2]
+    ldr r9, [r6, r4, LSL #2]
 
-        cmp r4, #0
-        beq no_carry_in
+    cmp r4, #0
+    beq no_carry_in
 
-        add r10, r8, r9
-        cmp r11, #1
-        addeq r10, r10, #1     
+    add r10, r8, r9
+    cmp r11, #1
+    addeq r10, r10, #1     
+    b store
 
 no_carry_in:
     adds r10, r8, r9       
@@ -136,3 +137,4 @@ printValues:
 
         ldmfd sp!, {r0-r12,pc}
 	.end
+    
