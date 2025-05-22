@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int ledControl(int gpio)
+int ledControl(int gpio);
 
-int main(int argc, char** argv){
+int main(int argc, char** argv) {
      int gno;
 
      if(argc<2){
-        pirntf("Usage: %s GPIO_NO\n, argv[0]");
+        printf("Usage: %s GPIO_NO\n, argv[0]");
         return -1;
      }
 
@@ -20,7 +20,7 @@ int main(int argc, char** argv){
 
 }
 
-int ledControl(int gpio){
+int ledControl(int gpio) {
     int i;
     pinMode(gpio, OUTPUT);
     for (i=0; i<5; i++){
