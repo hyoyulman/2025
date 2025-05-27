@@ -1,6 +1,11 @@
-#include <wiringPi.h>
-#include <stdio.h>
-#include <time.h>
+// #include <wiringPi.h> //DO not include
+#include <stdio.h> // Standard input/output Library
+#include <time.h> // Standard time Library
+#include <stdlib.h> // Standard Library functions (malloc, free, exit, etc.)
+#include <unistd.h>  // POSIX operating system API (close, read, write, etc.)
+#include <fcntl.h> // File control operations (open, O_RDWR, etc.)
+#include <sys/mman.h> // Memory management functions (mmap, munmap, etc.)
+#include "gpio.h" // Custom GPIO Library header
 
 #define LED 18
 #define SW 24
